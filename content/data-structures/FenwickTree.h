@@ -5,6 +5,8 @@
  * Source: folklore/TopCoder
  * Description: Computes partial sums a[0] + a[1] + ... + a[pos - 1], and updates single elements a[i],
  * taking the difference between the old and new value.
+ * If you want to change it to 1 - indexed, change vector size to n + 1 and see the changes in code.
+ * The lower bound function needs the data be monotonic.
  * Time: Both operations are $O(\log N)$.
  * Status: Stress-tested
  */
@@ -14,10 +16,12 @@ struct FT {
 	vector<ll> s;
 	FT(int n) : s(n) {}
 	void update(int pos, ll dif) { // a[pos] += dif
+		//for (; pos <= n; pos += pos & -pos) s[pos] += dif;
 		for (; pos < sz(s); pos |= pos + 1) s[pos] += dif;
 	}
 	ll query(int pos) { // sum of values in [0, pos)
 		ll res = 0;
+		//for (; pos > 0; pos -= pos & -pos) res += s[pos];
 		for (; pos > 0; pos &= pos - 1) res += s[pos-1];
 		return res;
 	}
