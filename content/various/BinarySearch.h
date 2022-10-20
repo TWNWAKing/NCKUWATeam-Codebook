@@ -9,16 +9,16 @@
  * Time: O(\log(rb - lb))
  * Status: tested in Codeforces online binary search courses
  */
-int64_t find_first_true(function<bool(int64_t)> f,int64_t lb,int64_t rb){ 
+ll find_first_true(function<bool(ll)> f,ll lb,ll rb){ 
     while(lb<rb){
-        int64_t mb=(lb+rb)>>1;
+        ll mb=(lb+rb)>>1;
         f(mb)?rb=mb:lb=mb+1; 
     } 
     return lb;
 }
-int64_t find_last_true(function<bool(int64_t)> f,int64_t lb,int64_t rb){
+ll find_last_true(function<bool(ll)> f,ll lb,ll rb){
     while(lb<rb){
-        int64_t mb=(lb+rb+1)>>1;
+        ll mb=(lb+rb+1)>>1;
         f(mb)?lb=mb:rb=mb-1; 
     } 
     return lb;
