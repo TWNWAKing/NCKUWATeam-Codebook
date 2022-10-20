@@ -4,7 +4,7 @@
  * License: CC0
  * Source: oToToT/kiseki
  * Description: Big Integer temolate for competitive programming.
- * Status: Not-well-tested
+ * Status: Not well-tested
  */
 class BigInt{
  private:
